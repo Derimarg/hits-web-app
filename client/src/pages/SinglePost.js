@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 import CommentForm from '../components/CommentForm';
+import CommentList from '../components/CommentList';
 import { useQuery } from '@apollo/client';
 import { QUERY_POST } from '../utils/queries';
 
@@ -32,6 +33,10 @@ const SinglePost = (props) => {
                     <p>{post.postText}</p>
                 </div>
             </div>
+
+            {post.commentCount > 0 && (
+                <CommentList reactions={post.comments} />
+            )}
 
             {Auth.loggedIn() && <CommentForm postId={post._id} />}
         </div>
