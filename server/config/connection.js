@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/deep-posts',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/harvardintechseattle',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
