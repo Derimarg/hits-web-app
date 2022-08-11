@@ -8,7 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import './App.css';
+
 import Home from './pages/Home'
 
 const httpLink = createHttpLink({
@@ -34,12 +34,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-        </Routes>
+        <div className='flex-column justify-flex-start min-100-vh'>
+          <div className='container'>
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
+              />
+            </Routes>
+          </div>
+        </div>
+
       </Router>
     </ApolloProvider>
   );
