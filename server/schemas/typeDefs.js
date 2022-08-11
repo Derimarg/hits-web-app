@@ -6,11 +6,11 @@ const typeDefs = gql`
     username: String
     email: String
     friendCount: Int
-    posts: [post]
+    posts: [Post]
     friends: [User]
   }
 
-  type post {
+  type Post {
     _id: ID
     postText: String
     createdAt: String
@@ -35,15 +35,15 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    posts(username: String): [post]
-    post(_id: ID!): post
+    posts(username: String): [Post]
+    post(_id: ID!): Post
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPost(postText: String!): post
-    addComment(postId: ID!, commentBody: String!): post
+    addPost(postText: String!): Post
+    addComment(postId: ID!, commentBody: String!): Post
     addFriend(friendId: ID!): User
   }
 `;
