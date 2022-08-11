@@ -1,5 +1,7 @@
 import React from 'react';
+import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
+
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -20,7 +22,17 @@ const Home = () => {
                         <PostForm />
                     </div>
                 )}
-                
+                <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <PostList
+                            posts={posts}
+                            title="Some Feed for Post(s)..."
+                        />
+                    )}
+                </div>
+
             </div>
         </main>
     );
