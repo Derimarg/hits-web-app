@@ -8,8 +8,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Header from './components/Header';
 
-import Home from './pages/Home'
+import Home from './pages/Home';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -34,8 +35,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className='flex-column justify-flex-start min-100-vh'>
-          <div className='container'>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
             <Routes>
               <Route
                 path="/"
@@ -44,7 +46,6 @@ function App() {
             </Routes>
           </div>
         </div>
-
       </Router>
     </ApolloProvider>
   );
