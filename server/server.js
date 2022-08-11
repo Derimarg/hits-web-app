@@ -1,6 +1,8 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const morgan = require('morgan');
+const cors = require('cors');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
@@ -15,8 +17,13 @@ const server = new ApolloServer({
 
 const app = express();
 
+// CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS (Cross-origin resource sharing) with various options.
+app.use(cors());
+app.options('*', cors()) // include before other routes
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(morgan("common"));
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
