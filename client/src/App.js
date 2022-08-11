@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+// imports for v1
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -17,6 +18,10 @@ import NoMatch from './pages/NoMatch';
 import SinglePost from './pages/SinglePost';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+
+// import for v2
+// import Homev2 from './v2/pagesv2/Home/Homev2';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,9 +46,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+
+        {/* v1 */}
+
+        <div
+          className="flex-column justify-flex-start min-100-vh"
+        >
           <Header />
-          <div className="container">
+          <div
+            className="container"
+          >
+
+
             <Routes>
               <Route
                 path="/"
@@ -73,8 +87,17 @@ function App() {
           </div>
           <Footer />
         </div>
+
+        {/* v2 */}
+
+        {/* <Routes>
+          <Route
+            path="/"
+            element={<Homev2 />}
+          />
+        </Routes> */}
       </Router>
-    </ApolloProvider>
+    </ApolloProvider >
   );
 }
 
