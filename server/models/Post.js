@@ -8,7 +8,7 @@ const postSchema = new Schema(
       type: String,
       required: 'You need to leave a post!',
       minlength: 1,
-      maxlength: 280
+      maxlength: 1000
     },
     createdAt: {
       type: Date,
@@ -32,6 +32,6 @@ postSchema.virtual('commentCount').get(function () {
   return this.comments.length;
 });
 
-const Post = model('Post', postSchema);
+const post = model('post', postSchema);
 
-module.exports = Post;
+module.exports = post;

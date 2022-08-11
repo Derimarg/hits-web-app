@@ -16,7 +16,7 @@ const PostList = ({ posts, title }) => {
               <Link
                 to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
-                className="text-light"
+              // className="text-light"
               >
                 {post.username}
               </Link>{' '}
@@ -26,8 +26,7 @@ const PostList = ({ posts, title }) => {
               <Link to={`/post/${post._id}`}>
                 <p>{post.postText}</p>
                 <p className="mb-0">
-                  Reactions: {post.reactionCount} || Click to{' '}
-                  {post.reactionCount ? 'see' : 'start'} the discussion!
+                  Comments: {post.commentCount} | {post.commentCount ? 'see' : 'start'}  discussion
                 </p>
               </Link>
             </div>
