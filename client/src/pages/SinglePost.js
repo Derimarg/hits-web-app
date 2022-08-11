@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Auth from '../utils/auth';
+import CommentForm from '../components/CommentForm';
 import { useQuery } from '@apollo/client';
 import { QUERY_POST } from '../utils/queries';
 
@@ -32,7 +33,7 @@ const SinglePost = (props) => {
                 </div>
             </div>
 
-
+            {Auth.loggedIn() && <CommentForm postId={post._id} />}
         </div>
     );
 };
