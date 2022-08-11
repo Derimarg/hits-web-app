@@ -8,17 +8,19 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+// imports for v1
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-// import Home from './pages/Home';
-// import Login from './pages/Login';
-// import NoMatch from './pages/NoMatch';
-// import SinglePost from './pages/SinglePost';
-// import Profile from './pages/Profile';
-// import Signup from './pages/Signup';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SinglePost from './pages/SinglePost';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
 
-import Home from './pages/Home/Home';
+// import for v2
+// import Homev2 from './v2/pagesv2/Home/Homev2';
 
 
 const httpLink = createHttpLink({
@@ -44,12 +46,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+
+        {/* v1 */}
+
         <div
           className="flex-column justify-flex-start min-100-vh"
         >
-          {/* <Header /> */}
+          <Header />
           <div
-          // className="container"
+            className="container"
           >
 
 
@@ -58,7 +63,7 @@ function App() {
                 path="/"
                 element={<Home />}
               />
-              {/* <Route
+              <Route
                 path="/login"
                 element={<Login />}
               />
@@ -77,11 +82,20 @@ function App() {
               <Route
                 path="*"
                 element={<NoMatch />}
-              /> */}
+              />
             </Routes>
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </div>
+
+        {/* v2 */}
+
+        {/* <Routes>
+          <Route
+            path="/"
+            element={<Homev2 />}
+          />
+        </Routes> */}
       </Router>
     </ApolloProvider >
   );
